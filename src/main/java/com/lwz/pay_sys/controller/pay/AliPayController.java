@@ -1,9 +1,9 @@
-package com.lwz.pay_sys.controller.live;
+package com.lwz.pay_sys.controller.pay;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/live")
-public class  LiveController {
+@RequestMapping(value = "/aliPay")
+public class AliPayController {
 }

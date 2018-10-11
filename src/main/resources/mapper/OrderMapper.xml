@@ -41,12 +41,57 @@
     where id = #{id,jdbcType=INTEGER}
       and order_id = #{orderId,jdbcType=VARCHAR}
   </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.lwz.pay_sys.entity.OrderEntity">
+    update lwz_order_info
+    <set>
+      <if test="null != itemId and '' != itemId">
+        item_id = #{itemId,jdbcType=VARCHAR},
+      </if>
+      <if test="null != itemName and '' != itemName">
+        item_name = #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="null != itemAmount">
+        item_amount = #{itemAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="null != orderType">
+        order_type = #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="null != createTime">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="null != payState">
+        pay_state = #{payState,jdbcType=INTEGER},
+      </if>
+      <if test="null != payType">
+        pay_type = #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="null != payTime">
+        pay_time = #{payTime,jdbcType=TIMESTAMP}
+      </if>
+    </set>
+    <where>
+      <if test="null != id">
+        id = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="orderId != null and orderId != ''">
+        and order_id = #{orderId,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </update>
+
   <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
     select id, order_id, item_id, item_name, item_amount, order_type, create_time, pay_state, 
     pay_type, pay_time
     from lwz_order_info
-    where id = #{id,jdbcType=INTEGER}
-      and order_id = #{orderId,jdbcType=VARCHAR}
+    <where>
+      <if test="null != id">
+        and id = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="orderId != null and orderId != ''">
+        and order_id = #{orderId,jdbcType=VARCHAR}
+      </if>
+    </where>
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, order_id, item_id, item_name, item_amount, order_type, create_time, pay_state, 
