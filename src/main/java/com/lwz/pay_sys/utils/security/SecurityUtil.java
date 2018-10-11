@@ -1,7 +1,9 @@
 package com.lwz.pay_sys.utils.security;
 
+import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.CollectionUtils;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -13,6 +15,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
+import java.util.Map;
 
 public class SecurityUtil {
 
@@ -125,5 +128,19 @@ public class SecurityUtil {
             logger.error("BASE64解密字符串异常." + str, e);
         }
         return decode;
+    }
+
+    /**
+     * 生成签名
+     * @param map
+     * @return
+     */
+    public static String createSign(Map<String,String> map){
+        if(CollectionUtils.isEmpty(map)){
+            return null;
+        }
+        String strMap = JSONObject.toJSONString(map);
+        strMap = md5(strMap);
+        return strMap;
     }
 }
