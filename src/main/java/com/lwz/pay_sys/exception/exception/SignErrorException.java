@@ -4,7 +4,7 @@ public class SignErrorException extends RuntimeException {
     private Integer code;
     private String msg;
 
-    public SignErrorException(){
+    public SignErrorException() {
         this.code = -1;
         this.msg = "验签失败，请重试";
     }
