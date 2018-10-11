@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lwz.pay_sys.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.lwz.pay_sys.entity.OrderEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="item_id" jdbcType="VARCHAR" property="itemId" />
+    <result column="item_name" jdbcType="VARCHAR" property="itemName" />
+    <result column="item_amount" jdbcType="DOUBLE" property="itemAmount" />
+    <result column="order_type" jdbcType="INTEGER" property="orderType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="pay_state" jdbcType="INTEGER" property="payState" />
+    <result column="pay_type" jdbcType="INTEGER" property="payType" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from lwz_order_info
+    where id = #{id,jdbcType=INTEGER}
+      and order_id = #{orderId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lwz.pay_sys.entity.OrderEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into lwz_order_info (id, order_id, item_id, 
+      item_name, item_amount, order_type, 
+      create_time, pay_state, pay_type, 
+      pay_time)
+    values (#{id,jdbcType=INTEGER}, #{orderId,jdbcType=VARCHAR}, #{itemId,jdbcType=VARCHAR}, 
+      #{itemName,jdbcType=VARCHAR}, #{itemAmount,jdbcType=DOUBLE}, #{orderType,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{payState,jdbcType=INTEGER}, #{payType,jdbcType=INTEGER}, 
+      #{payTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lwz.pay_sys.entity.OrderEntity">
+    update lwz_order_info
+    set item_id = #{itemId,jdbcType=VARCHAR},
+      item_name = #{itemName,jdbcType=VARCHAR},
+      item_amount = #{itemAmount,jdbcType=DOUBLE},
+      order_type = #{orderType,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      pay_state = #{payState,jdbcType=INTEGER},
+      pay_type = #{payType,jdbcType=INTEGER},
+      pay_time = #{payTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+      and order_id = #{orderId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select id, order_id, item_id, item_name, item_amount, order_type, create_time, pay_state, 
+    pay_type, pay_time
+    from lwz_order_info
+    where id = #{id,jdbcType=INTEGER}
+      and order_id = #{orderId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, order_id, item_id, item_name, item_amount, order_type, create_time, pay_state, 
+    pay_type, pay_time
+    from lwz_order_info
+  </select>
+</mapper>

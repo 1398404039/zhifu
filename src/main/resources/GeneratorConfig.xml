@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- targetRuntime：指定生成代码的运行目标.  可选值：
+    MyBatis：可以生成动态WHERE条件的SQL;
+    MyBatis3Simple：只能生成简单的CURD;
+    Ibatista2Java2;  Ibatista2Java5 -->
+    <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+        <!--<context id="DB2Tables" targetRuntime="MyBatis3">-->
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 指定如何连接到目标数据库 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://39.106.145.162:3306/zhifu"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <!-- Java类型解析器 -->
+        <javaTypeResolver>
+            <!-- 是否强制转换BigDecimals -->
+            <property name="forceBigDecimals" value="false"></property>
+        </javaTypeResolver>
+
+        <!-- 配置JavaBean的生成策略 -->
+        <!-- targetPackage：目标包名；targetProject：目标工程；-->
+        <javaModelGenerator targetPackage="com.lwz.pay_sys.entity" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"></property>
+            <property name="trimStrings" value="true"></property>
+        </javaModelGenerator>
+
+        <!-- sql映射生成策略 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="./src/main/resources/">
+            <property name="enableSubPackages" value="true"></property>
+        </sqlMapGenerator>
+
+        <!--mapper接口的所在位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.lwz.pay_sys.dao" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"></property>
+        </javaClientGenerator>
+
+        <!-- 根据表创建JavaBean-->
+        <!-- tableName：表名；domainObjectName：要生成的类名；-->
+        <table tableName="lwz_order_info" domainObjectName="OrderEntity"/>
+    </context>
+</generatorConfiguration>
