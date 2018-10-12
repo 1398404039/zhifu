@@ -14,8 +14,8 @@ public enum ConstVar {
     EXISTSUSER(101, "用户已存在"), SMSFAIL(102, "验证码错误"), SMSOVERDUE(103, "验证码已过期"),
     UNSMSOVERDUE(104, "您的验证码未失效"), NOTNULLPARAM(105, "参数不能为空"), USERDISABLE(106, "该帐号被禁用"), TIMEOVER(999, "申请次数超限"), COUNTRYSAME(990, "该国家已申请，不能重复申请"),
     LOGINFAIL(107, "用户名或密码错误"), PLEASELOGIN(108, "请登录账户"), PWDCOMPARE(109, "两次密码不一致"), COMMON_PARAMETER_ERROR(420, "参数异常"), COMMON_SERVER_ERROR(500, "后台异常"),
-    EXISTPHONENUMBER(110, "手机号已注册"), PHONENOTREGISTERED(111, "手机号未注册"), NOAUTHORIZATION(112, "没有权限");
-
+    EXISTPHONENUMBER(110, "手机号已注册"), PHONENOTREGISTERED(111, "手机号未注册"), NOAUTHORIZATION(112, "没有权限"),
+    SIGNERROR(204, "签名失败");
     /*常量~*/
     public static final String ENCODING = Charset.forName("UTF-8").name();
 
@@ -26,7 +26,7 @@ public enum ConstVar {
     public static final int SUCCESSCODE = 0xC8;
 
     public static final int FAILCODE = -1;
-    public static final String ZERO = ",0";
+    public static final int ZERO = 0x0;
 
     private ConstVar(int code, String msg) {
         this.code = code;

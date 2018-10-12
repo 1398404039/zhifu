@@ -70,7 +70,7 @@ public class WXPayController {
                 String text = weixinPay(orderId);
                 logger.info("*********************************成功获取二维码url******************************************************" + text);
                 return RespMsg.SUCCESS(text);
-//                /* 根据url来生成二维码*/
+               /* 根据url来生成二维码*/
 //                int width = 300;
 //                int height = 300;
 //
@@ -193,7 +193,6 @@ public class WXPayController {
             }
         }
     }
-
 
     /**
      * 微信接口，查询订单状态
