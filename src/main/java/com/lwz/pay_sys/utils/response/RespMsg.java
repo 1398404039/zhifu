@@ -217,25 +217,6 @@ public class RespMsg {
         return RS;
     }
 
-
-
-//	/*private static void putRS(int code,Object value){
-//		RS.clear();
-//		RS.put("code", code);
-//		RS.put("data", value);
-//	}
-//
-//	public static JSONObject putPage(Page page, Object value) {
-//		JSONObject RS = new JSONObject();
-//		RS.put("code", 200);
-//		RS.put("totalResult", page.getTotalResult());//总记录数
-//		RS.put("totalPage", page.getTotalPage());//总页数
-//		RS.put("pageSize", page.getPageSize());//每次多少条
-//		RS.put("pageNum", page.getPageNum());//当前第几页
-//		RS.put("data", value);//当前页的数据
-//		return RS;
-//	}
-
     public static void main(String[] args) {
 
         long time = System.nanoTime();
