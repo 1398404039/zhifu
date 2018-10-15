@@ -23,4 +23,6 @@ public interface PartMapper {
     List<Part> selectPartByName(@Param("applicationName") String applicationName);
 
     Part getPartByAppId(@Param("appId") String appId);
+
+    Part getPartInfoByOrderInfo(@Param("orderId") String orderId);
 }

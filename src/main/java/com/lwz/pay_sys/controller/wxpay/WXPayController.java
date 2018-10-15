@@ -154,6 +154,10 @@ public class WXPayController {
                     if (!flag) {
                         logger.error(String.format("微信支付成功，更改本地状态失败,id:%s*****orderId:%s", order.getId(), order.getOrderId()));
                     }
+                    flag = orderService.transferOrderResult(orderId);
+                    if(!flag){
+                        logger.error(String.format("微信支付成功，更改支付系统状态成功，更改分支状态失败,id:%s*****orderId:%s", order.getId(), order.getOrderId()));
+                    }
                     System.out.println("业务执行结束");
                     //通知微信.异步确认成功.必写.不然会一直通知后台.八次之后就认为交易失败了.
                     resXml = "<xml>" + "<return_code><![CDATA[SUCCESS]]></return_code>"

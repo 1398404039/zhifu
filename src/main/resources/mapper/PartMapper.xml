@@ -45,4 +45,11 @@
     select id, app_id, app_secrect, application_name, notify_url
     from lwz_part_info where app_id = #{appId}
   </select>
+
+  <select id="getPartInfoByOrderInfo" resultMap="BaseResultMap">
+    SELECT p.*
+    FROM lwz_part_info p
+    LEFT JOIN lwz_order_info o ON p.app_id = o.app_id
+    WHERE o.order_id = #{orderId}
+  </select>
 </mapper>
