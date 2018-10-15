@@ -22,11 +22,12 @@ public class OrderController {
     public JSONObject createOrder(@RequestParam(value = "itemId") String itemId,
                                   @RequestParam(value = "itemName") String itemName,
                                   @RequestParam(value = "itemAmount") Double itemAmount,
-                                  @RequestParam(value = "orderType") Integer orderType) {
-        if (StringUtils.isEmpty(itemId) || StringUtils.isEmpty(itemName) || null == itemAmount || null == orderType) {
+                                  @RequestParam(value = "orderType") Integer orderType,
+                                  @RequestParam(value = "appId") String appId) {
+        if (StringUtils.isEmpty(appId) || StringUtils.isEmpty(itemId) || StringUtils.isEmpty(itemName) || null == itemAmount || null == orderType) {
             return RespMsg.NOTNULLPARAM();
         }
-        OrderEntity order = orderService.createOrder(itemId, itemName, itemAmount, orderType);
+        OrderEntity order = orderService.createOrder(itemId, itemName, itemAmount, orderType,appId);
         return RespMsg.SUCCESS(order);
     }
 }

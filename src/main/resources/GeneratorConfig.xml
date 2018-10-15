@@ -46,6 +46,6 @@
 
         <!-- 根据表创建JavaBean-->
         <!-- tableName：表名；domainObjectName：要生成的类名；-->
-        <table tableName="lwz_order_info" domainObjectName="OrderEntity"/>
+        <table tableName="lwz_part_info" domainObjectName="Part"/>
     </context>
 </generatorConfiguration>

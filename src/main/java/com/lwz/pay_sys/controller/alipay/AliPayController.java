@@ -246,6 +246,4 @@ public class AlipayController {
         result = result.substring(0, result.lastIndexOf(","));
         return result;
     }
-
-
 }

@@ -24,6 +24,16 @@ public class OrderEntity implements Serializable {
 
     private Date payTime;
 
+    private String appId;
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
     public Integer getId() {
         return id;
     }

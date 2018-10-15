@@ -17,7 +17,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
 
     @Override
-    public OrderEntity createOrder(String itemId, String itemName, Double itemAmount, Integer orderType) {
+    public OrderEntity createOrder(String itemId, String itemName, Double itemAmount, Integer orderType,String appId) {
         OrderEntity order = new OrderEntity();
         order.setOrderId(UUIDUtil.getUUID());
         order.setCreateTime(new Date());
@@ -25,6 +25,7 @@ public class OrderServiceImpl implements OrderService {
         order.setItemName(itemName);
         order.setItemAmount(itemAmount);
         order.setOrderType(orderType);
+        order.setAppId(appId);
         boolean flag = orderMapper.insert(order) == 1;
         if (flag) {
             return order;

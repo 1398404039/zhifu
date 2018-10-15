@@ -136,6 +136,13 @@
         </dependency>
         <!-- tomcat 的支持end-->
 
+        <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+
 
         <!-- MyBatis generator（逆向工程）,后期可删除 -->
         <dependency>

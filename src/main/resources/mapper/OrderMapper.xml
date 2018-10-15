@@ -12,6 +12,7 @@
     <result column="pay_state" jdbcType="INTEGER" property="payState" />
     <result column="pay_type" jdbcType="INTEGER" property="payType" />
     <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="app_id" jdbcType="VARCHAR" property="appId" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="map">
     delete from lwz_order_info
@@ -22,11 +23,11 @@
     insert into lwz_order_info (id, order_id, item_id, 
       item_name, item_amount, order_type, 
       create_time, pay_state, pay_type, 
-      pay_time)
+      pay_time,app_id)
     values (#{id,jdbcType=INTEGER}, #{orderId,jdbcType=VARCHAR}, #{itemId,jdbcType=VARCHAR}, 
       #{itemName,jdbcType=VARCHAR}, #{itemAmount,jdbcType=DOUBLE}, #{orderType,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{payState,jdbcType=INTEGER}, #{payType,jdbcType=INTEGER}, 
-      #{payTime,jdbcType=TIMESTAMP})
+      #{payTime,jdbcType=TIMESTAMP},#{appId,jdbcType=VARCHAR})
   </insert>
   <!--<update id="updateByPrimaryKey" parameterType="com.lwz.pay_sys.entity.OrderEntity">-->
     <!--update lwz_order_info-->
@@ -68,6 +69,9 @@
       </if>
       <if test="null != payTime">
         pay_time = #{payTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="null != appId and appId != ''">
+        app_id = #{appId,jdbcType=VARCHAR}
       </if>
     </set>
     <where>
