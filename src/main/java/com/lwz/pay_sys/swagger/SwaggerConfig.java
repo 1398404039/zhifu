@@ -19,12 +19,13 @@ import static springfox.documentation.builders.PathSelectors.regex;
  * SwaggerConfig
  */
 @Configuration
-@ConditionalOnProperty(prefix = "swagger",value = {"enable"},havingValue = "true")
+@ConditionalOnProperty(prefix = "swagger", value = {"enable"}, havingValue = "true")
 @EnableSwagger2
 public class SwaggerConfig {
 
     @Value("${swagger.enable:false}")
     private boolean swaggerEnable;
+
     @Bean
     public Docket demoApi() {
         return new Docket(DocumentationType.SWAGGER_2)

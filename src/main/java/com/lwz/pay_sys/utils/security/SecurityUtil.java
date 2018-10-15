@@ -132,11 +132,12 @@ public class SecurityUtil {
 
     /**
      * 生成签名
+     *
      * @param map
      * @return
      */
-    public static String createSign(Map<String,String> map){
-        if(CollectionUtils.isEmpty(map)){
+    public static String createSign(Map<String, String> map) {
+        if (CollectionUtils.isEmpty(map)) {
             return null;
         }
         String strMap = JSONObject.toJSONString(map);

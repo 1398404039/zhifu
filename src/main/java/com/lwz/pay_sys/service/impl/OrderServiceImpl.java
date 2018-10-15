@@ -26,7 +26,7 @@ public class OrderServiceImpl implements OrderService {
         order.setItemAmount(itemAmount);
         order.setOrderType(orderType);
         boolean flag = orderMapper.insert(order) == 1;
-        if(flag){
+        if (flag) {
             return order;
         }
         return null;
@@ -34,7 +34,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderEntity getOrderInfoByOrderId(String orderId) {
-        return orderMapper.selectByPrimaryKey(null,orderId);
+        return orderMapper.selectByPrimaryKey(null, orderId);
     }
 
     @Override
@@ -44,11 +44,12 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 更新本地订单状态
+     *
      * @param order
      * @param payType 支付方式  1：微信支付   2：支付宝支付
      * @return
      */
-    public boolean updateOrderPayState(OrderEntity order,Integer payType) {
+    public boolean updateOrderPayState(OrderEntity order, Integer payType) {
         String redeemCode = UUIDUtil.createRedeemCode();
         order.setPayType(payType);
         order.setPayState(Constants.ORDER_STATE_PAYED);
@@ -60,6 +61,7 @@ public class OrderServiceImpl implements OrderService {
         }
         return true;
     }
+
     private boolean updateOrderPayStateLocal(OrderEntity order) {
         return orderMapper.updateSelective(order) > 0;
     }

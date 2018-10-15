@@ -26,7 +26,7 @@ public enum ConstVar {
     public static final int SUCCESSCODE = 0xC8;
 
     public static final int FAILCODE = -1;
-    public static final int ZERO = 0x0;
+    public static final String ZERO = ",0";
 
     private ConstVar(int code, String msg) {
         this.code = code;

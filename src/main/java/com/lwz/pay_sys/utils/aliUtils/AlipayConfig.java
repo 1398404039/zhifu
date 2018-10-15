@@ -29,7 +29,7 @@ public class AlipayConfig {
     //pc端
     public static String toSucessPage = Constants.LOCALHOST + "/jiaofeiSuccess.html";
     //回调
-    public static String paySuccessCall = Constants.LOCALHOST + "/pay/alipay/paySuccessCall";
+    public static String paySuccessCall = Constants.LOCALHOST + "/alipay/alipay/paySuccessCall";
 
 }
 

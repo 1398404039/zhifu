@@ -1,4 +1,4 @@
-package com.lwz.pay_sys.controller.orderpublic;
+package com.lwz.pay_sys.controller.order;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lwz.pay_sys.entity.OrderEntity;
@@ -18,15 +18,15 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @RequestMapping(value = "/createOrder",method = RequestMethod.POST)
+    @RequestMapping(value = "/createOrder", method = RequestMethod.POST)
     public JSONObject createOrder(@RequestParam(value = "itemId") String itemId,
                                   @RequestParam(value = "itemName") String itemName,
                                   @RequestParam(value = "itemAmount") Double itemAmount,
-                                  @RequestParam(value = "orderType") Integer orderType){
-        if(StringUtils.isEmpty(itemId) || StringUtils.isEmpty(itemName) || null == itemAmount || null == orderType){
+                                  @RequestParam(value = "orderType") Integer orderType) {
+        if (StringUtils.isEmpty(itemId) || StringUtils.isEmpty(itemName) || null == itemAmount || null == orderType) {
             return RespMsg.NOTNULLPARAM();
         }
-        OrderEntity order = orderService.createOrder(itemId,itemName,itemAmount,orderType);
+        OrderEntity order = orderService.createOrder(itemId, itemName, itemAmount, orderType);
         return RespMsg.SUCCESS(order);
     }
 }

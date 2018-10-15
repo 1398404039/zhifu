@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class SignErrorExceptionHandler {
 
     @ExceptionHandler(value = SignErrorException.class)
-    public JSONObject doSignErrorHandler(){
+    public JSONObject doSignErrorHandler() {
         return RespMsg.SIGNERROTR();
     }
 }

@@ -1,4 +1,4 @@
-package com.lwz.pay_sys.controller.pay;
+package com.lwz.pay_sys.controller.wxpay;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.zxing.BarcodeFormat;
@@ -70,7 +70,7 @@ public class WXPayController {
                 String text = weixinPay(orderId);
                 logger.info("*********************************成功获取二维码url******************************************************" + text);
                 return RespMsg.SUCCESS(text);
-               /* 根据url来生成二维码*/
+                /* 根据url来生成二维码*/
 //                int width = 300;
 //                int height = 300;
 //

@@ -44,7 +44,7 @@ public class SmsUtil {
         return RespMsg.FAIL("发送短信消息错误");
     }
 
-    public static void main(String[] args){
-        sendSmsMessage("17610772092","兑换码：XXXXXXXXXX");
+    public static void main(String[] args) {
+        sendSmsMessage("17610772092", "兑换码：XXXXXXXXXX");
     }
 }

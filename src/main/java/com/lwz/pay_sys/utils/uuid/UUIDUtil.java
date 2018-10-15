@@ -4,13 +4,13 @@ import java.util.UUID;
 
 public class UUIDUtil {
 
-    public static String getUUID(){
+    public static String getUUID() {
         return createUUID();
     }
 
-    private static String createUUID(){
+    private static String createUUID() {
         String UUIDStr = UUID.randomUUID().toString();
-        UUIDStr = UUIDStr.trim().toLowerCase().replaceAll("-","");
+        UUIDStr = UUIDStr.trim().toLowerCase().replaceAll("-", "");
         return UUIDStr;
     }
 

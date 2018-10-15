@@ -28,19 +28,19 @@
       #{createTime,jdbcType=TIMESTAMP}, #{payState,jdbcType=INTEGER}, #{payType,jdbcType=INTEGER}, 
       #{payTime,jdbcType=TIMESTAMP})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.lwz.pay_sys.entity.OrderEntity">
-    update lwz_order_info
-    set item_id = #{itemId,jdbcType=VARCHAR},
-      item_name = #{itemName,jdbcType=VARCHAR},
-      item_amount = #{itemAmount,jdbcType=DOUBLE},
-      order_type = #{orderType,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      pay_state = #{payState,jdbcType=INTEGER},
-      pay_type = #{payType,jdbcType=INTEGER},
-      pay_time = #{payTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-      and order_id = #{orderId,jdbcType=VARCHAR}
-  </update>
+  <!--<update id="updateByPrimaryKey" parameterType="com.lwz.pay_sys.entity.OrderEntity">-->
+    <!--update lwz_order_info-->
+    <!--set item_id = #{itemId,jdbcType=VARCHAR},-->
+      <!--item_name = #{itemName,jdbcType=VARCHAR},-->
+      <!--item_amount = #{itemAmount,jdbcType=DOUBLE},-->
+      <!--order_type = #{orderType,jdbcType=INTEGER},-->
+      <!--create_time = #{createTime,jdbcType=TIMESTAMP},-->
+      <!--pay_state = #{payState,jdbcType=INTEGER},-->
+      <!--pay_type = #{payType,jdbcType=INTEGER},-->
+      <!--pay_time = #{payTime,jdbcType=TIMESTAMP}-->
+    <!--where id = #{id,jdbcType=INTEGER}-->
+      <!--and order_id = #{orderId,jdbcType=VARCHAR}-->
+  <!--</update>-->
 
   <update id="updateByPrimaryKey" parameterType="com.lwz.pay_sys.entity.OrderEntity">
     update lwz_order_info
