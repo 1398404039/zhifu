@@ -175,6 +175,7 @@ public class AlipayController {
             }
             Boolean flag = orderService.updateOrderPayState(order, Constants.ORDER_PAY_CHANNEL_ZFB);
             if (flag) {
+                orderService.transferOrderResult(orderId);
                 return "success";
             }
         } catch (Exception e) {
