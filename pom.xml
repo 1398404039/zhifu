@@ -158,6 +158,13 @@
         </dependency>
         <!-- MyBatis generator（逆向工程）,后期可删除 -->
 
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
